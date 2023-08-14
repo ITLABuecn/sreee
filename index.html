@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    <table class="calculator" >
+        <tr>
+            <td colspan="4">
+             <input class="display-box" type="text" id="result"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"> 
+                <input type="button" value="Clear" onclick="clearScreen()" id="bt" /> 
+            </td>
+        </tr>
+
+        <tr>
+        <td> <input type="button" value="1" onclick="display('1')" id="hov"/> </td>
+        <td> <input type="button" value="2" onclick="display('2')" id="hov"/> </td>
+        <td> <input type="button" value="3" onclick="display('3')" id="hov"/> </td>
+        <td> <input type="button" value="/" onclick="display('/')" id="hov"/> </td>
+        </tr>
+
+        <tr>
+        <td> <input type="button" value="4" onclick="display('4')" id="hov"/> </td>
+        <td> <input type="button" value="5" onclick="display('5')" id="hov"/> </td>
+        <td> <input type="button" value="6" onclick="display('6')" id="hov"/> </td>
+        <td> <input type="button" value="-" onclick="display('-')" id="hov"/> </td>
+        </tr>
+
+        <tr>
+        <td> <input type="button" value="7" onclick="display('7')" id="hov"/> </td>
+        <td> <input type="button" value="8" onclick="display('8')" id="hov"/> </td>
+        <td> <input type="button" value="9" onclick="display('9')" id="hov"/> </td>
+        <td> <input type="button" value="+" onclick="display('+')" id="hov"/> </td>
+        </tr>
+
+        <tr>
+        <td> <input type="button" value="." onclick="display('.')" id="hov"/> </td>
+        <td> <input type="button" value="0" onclick="display('0')" id="hov"/> </td>
+        
+        <!-- calculate() function -->
+        <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+        <td> <input type="button" value="*" onclick="display('*')" id="hov"/> </td>
+        </tr>
+        </table>    
+</body>
+</html>
+
+<style type="text/css" >
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+body
+{
+    background-image: url('https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=2000');
+    background-size: cover;    
+}
+.calculator {
+    padding: 10px;
+    border-radius: 10px;
+    height: 450px;
+    width: 30%;
+    margin: auto;
+    background-color: #1b3764; 
+    box-shadow: 5px 10px 8px #3c3a46;
+    margin-top: 70px;
+}
+.display-box 
+{
+    font-family: 'Orbitron', sans-serif;
+    background-color:  #dfeaf1; 
+    border: solid black 0.5px;
+    color: black;
+    border-radius:5px;
+    width: 96%;
+    height: 80%;
+    padding-left: 15px;
+    margin: 3px 1px -1px -3px;
+    color: #211e24;
+    font-size: 25px;
+    
+}
+#btn 
+{
+    background-color:#e72c2c; 
+}
+#bt 
+{
+    background-color: #37d6d6; 
+    height: 30px;
+    width: 70px;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    padding: auto;
+    font-size: 13px;
+}
+input[type=button] 
+{
+    font-family: 'Orbitron', sans-serif;
+    background-color:#ddc959; 
+    color: rgb(0, 0, 0);
+    border: solid black 0.5px;
+    width: 100%;
+    border-radius: 5px;
+    height: 70%;
+    outline: none;
+    font-size: 18px;
+}
+#hov:hover
+{
+    background-color:#e0944c; 
+    color: rgb(17, 14, 11);
+    transition-duration: 0.3s;
+}
+
+</style>
+
+<script type="text/javascript" >
+    //this fn clears the screen
+    function clearScreen() 
+    {
+        document.getElementById("result").value = "";
+    }
+
+    // This fn display values
+    function display(value) 
+    {
+        document.getElementById("result").value += value;
+    }
+
+    // This fn evaluate and display result
+    function calculate() 
+    {
+        var p = document.getElementById("result").value;
+        var q = eval(p);
+        document.getElementById("result").value = q;
+    }
+</script>
